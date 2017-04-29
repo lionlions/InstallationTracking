@@ -1,39 +1,35 @@
 {
   "project_info": {
-    "project_number": "698849455556",
-    "firebase_url": "https://installation-tracking.firebaseio.com",
-    "project_id": "installation-tracking",
-    "storage_bucket": "installation-tracking.appspot.com"
+    "project_number": "983060853881",
+    "project_id": "firebase-installation-tracking"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:698849455556:android:06d20cb816714ed2",
+        "mobilesdk_app_id": "1:983060853881:android:06d20cb816714ed2",
         "android_client_info": {
           "package_name": "com.cindy.installationtracking"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "698849455556-fleigt3ra2m4hrnoms7098b1v6ad8ubr.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCW_iG3M6HBk-9dTDEPz--ST5MECOmb1JM"
+          "current_key": "AIzaSyC-23c9gkrES-MyozE5zR_xFz7qK51Pzeg"
         }
       ],
       "services": {
         "analytics_service": {
-          "status": 1
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-77928531-3"
+          }
         },
         "appinvite_service": {
           "status": 1,
           "other_platform_oauth_client": []
         },
         "ads_service": {
-          "status": 2
+          "status": 1
         }
       }
     }
