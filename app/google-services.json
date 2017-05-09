@@ -1,7 +1,9 @@
 {
   "project_info": {
     "project_number": "983060853881",
-    "project_id": "firebase-installation-tracking"
+    "firebase_url": "https://fir-installation-tracking.firebaseio.com",
+    "project_id": "firebase-installation-tracking",
+    "storage_bucket": "firebase-installation-tracking.appspot.com"
   },
   "client": [
     {
@@ -11,7 +13,16 @@
           "package_name": "com.cindy.installationtracking"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "983060853881-kd7gim9r5fsclm397915lpupmp3oastm.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "983060853881-uda623lat85ba5ugtnvjri9hofbcqp1a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyC-23c9gkrES-MyozE5zR_xFz7qK51Pzeg"
@@ -29,7 +40,7 @@
           "other_platform_oauth_client": []
         },
         "ads_service": {
-          "status": 1
+          "status": 2
         }
       }
     }
