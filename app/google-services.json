@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "983060853881-mdnls8bvppdp47grli251tj4hm43phhl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cindy.installationtracking",
+            "certificate_hash": "c533bdfa0304a6994fadeb77bd8c358ca693cfd1"
+          }
+        },
+        {
           "client_id": "983060853881-kd7gim9r5fsclm397915lpupmp3oastm.apps.googleusercontent.com",
           "client_type": 3
         },
