@@ -7,8 +7,8 @@ android {
         applicationId "com.cindy.installationtracking"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 11
-        versionName "2.0"
+        versionCode 12
+        versionName "2.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
@@ -26,11 +26,12 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.google.android.gms:play-services:10.2.4'
-    compile 'com.android.support:appcompat-v7:25+'
+    compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.google.android.gms:play-services-analytics:10.2.4'
     compile 'com.google.firebase:firebase-core:10.2.4'
     compile 'com.android.support:multidex:1.0.0'
     compile 'com.google.firebase:firebase-invites:10.2.4'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
 }
 

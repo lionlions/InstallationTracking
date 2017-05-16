@@ -1,6 +1,7 @@
 package com.cindy.installationtracking;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,9 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.firebase.analytics.FirebaseAnalytics;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener{
 
@@ -39,7 +43,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     private void processView(){
         vFromWhere = (TextView)findViewById(R.id.from_where);
-        vFromWhere.setText("Installation Tracking!! \n You will see nothing in this app!!");
     }
 
     private FirebaseAnalytics mFirebaseAnalytics;
@@ -50,7 +53,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
         CustomApplication application = (CustomApplication) getApplication();
         mTracker = application.getDefaultTracker();
-        mTracker.send(new HitBuilders.EventBuilder().setCategory("Category").setAction("Action").setLabel("Label").build());
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this, this)
@@ -64,11 +66,27 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 public void onResult(@NonNull AppInviteInvitationResult appInviteInvitationResult) {
 
                     if(appInviteInvitationResult.getStatus().isSuccess()){
+                        Log.i(TAG, "status: " + appInviteInvitationResult.getStatus().getStatus());
+                        Log.i(TAG, "status message: " + appInviteInvitationResult.getStatus().getStatusMessage());
 
                         Intent intent = appInviteInvitationResult.getInvitationIntent();
+                        Log.i(TAG, "intent data: " + intent.getData());
+                        Log.i(TAG, "intent action: " + intent.getAction());
                         String deepLink = AppInviteReferral.getDeepLink(intent);
                         String inviteId = AppInviteReferral.getInvitationId(intent);
-                        Log.d(TAG, "deepLink: " + deepLink + " inviteId: " + inviteId);
+                        Log.d(TAG, "deepLink: " + deepLink + "\ninviteId: " + inviteId);
+
+                        try{
+                            deepLink = URLDecoder.decode(deepLink, "UTF-8");
+                        }catch (UnsupportedEncodingException e){
+                            e.printStackTrace();
+                        }
+                        Uri uri = Uri.parse(deepLink);
+                        String utmSource = uri.getQueryParameter("utm_source");
+                        String utmMedium = uri.getQueryParameter("utm_medium");
+                        Log.d(TAG, "utmSource: " + utmSource);
+                        Log.d(TAG, "utmMedium: " + utmMedium);
+                        mTracker.send(new HitBuilders.EventBuilder().setCategory("Category").setAction("Action").setLabel("Label").build());
 
                     } else {
                         Log.d(TAG, "getInvitation: no deep link found.");

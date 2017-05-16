@@ -10,7 +10,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:gravity="center"
-        android:text="MainActivity\nInstallation Tracking!!\nYou will see nothing in this app!!" />
+        android:gravity="center"/>
 
 </RelativeLayout>
